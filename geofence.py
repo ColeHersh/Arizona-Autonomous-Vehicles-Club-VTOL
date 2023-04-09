@@ -39,7 +39,7 @@ async def run():
     fence = []
     for line in file:
         m = line.split(',')
-        fence.append(Point(float(m[0]), float(m[2].strip())))
+        fence.append(Point(float(m[0]), float(m[1].strip())))
 
     # Create a polygon object using your points
     polygon = Polygon(fence, Polygon.FenceType.INCLUSION)
