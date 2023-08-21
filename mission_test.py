@@ -24,7 +24,7 @@ async def run():
         observe_is_in_air(drone, running_tasks))
 
     mission_items = []
-    with open("coords.txt", "r") as handler:
+    with open("bayland.txt", "r") as handler:
         text = handler.read()
         lines = text.split("\n")
         #print(lines)
