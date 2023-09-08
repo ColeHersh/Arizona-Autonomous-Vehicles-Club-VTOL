@@ -22,7 +22,7 @@ async def run():
         if health.is_global_position_ok and health.is_home_position_ok:
             print("-- Global position estimate OK")
             break
-
+    #asyncio.ensure_future(print_position(drone))
     print("-- Arming")
     await drone.action.arm()
 
@@ -39,7 +39,7 @@ async def run():
         #print(lines)
         for line in lines:
             latLong = line.split(", ")
-            print(latLong)
+            #print(latLong)
             if latLong[0] != None:
                 mission_items.append([(float)(latLong[0].strip()), (float)(latLong[1].strip())])
 
@@ -48,22 +48,40 @@ async def run():
 
     while len(mission_items) > 0:
         await drone.action.goto_location(mission_items[0][0], mission_items[0][1], 50 , 0)
-        #print('HHHERRRRRREEEE')    
-        #mission_items = mission_items[1:]
+        #await next_item(mission_items)
+        #print('HHHERRRRRREEEE')
+        #currLat =  drone.telemetry.position.latitude_deg()
+        #currLong = drone.telemetry.position.longitude_deg()
+        #print(currLat, currLong)
+        async for position_info in drone.telemetry.position():
+            current_latitude = position_info.latitude_deg
+            current_longitude = position_info.longitude_deg
+            break
+        #currLat = drone.telemetry.latitude_deg()
+        #current_longitude =  drone.telemetry.position.longitude_deg()
+        #print('yooo',  current_latitude)
+
+        if current_latitude == mission_items[0][0] and current_longitude ==  mission_items[0][1]:
+            mission_items = mission_items[1:]
+            
        
     print("-- Landing")
     await drone.action.land()
 
     status_text_task.cancel()
-
-
+    
+async def next_item(i):
+    i = i[1:]
 async def print_status_text(drone):
     try:
         async for status_text in drone.telemetry.status_text():
             print(f"Status: {status_text.type}: {status_text.text}")
     except asyncio.CancelledError:
         return
-
+   
+#async def print_position(drone):
+    async for position in drone.telemetry.position():
+        print('yoo',position)
 
 if __name__ == "__main__":
     # Run the asyncio loop
