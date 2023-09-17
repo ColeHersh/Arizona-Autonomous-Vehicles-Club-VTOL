@@ -59,8 +59,9 @@ async def run():
             break
         #currLat = drone.telemetry.latitude_deg()
         #current_longitude =  drone.telemetry.position.longitude_deg()
-        #print('yooo',  current_latitude)
+        #print('yooo',  current_latitude, current_longitude)
 
+        # Waits until the vtol has reached the point to move to the next one
         if current_latitude == mission_items[0][0] and current_longitude ==  mission_items[0][1]:
             mission_items = mission_items[1:]
             
