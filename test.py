@@ -63,9 +63,9 @@ async def run():
 
         # Waits until the vtol has reached the point to move to the next one
         if current_latitude == mission_items[0][0] and current_longitude ==  mission_items[0][1]:
+            #exit()
             mission_items = mission_items[1:]
-            
-       
+            #drone.action.hold()
     print("-- Landing")
     await drone.action.land()
 

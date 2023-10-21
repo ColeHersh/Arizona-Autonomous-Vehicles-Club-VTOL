@@ -2,8 +2,7 @@
 
 import asyncio
 from mavsdk import System
-
-
+import pymavlink
 async def run():
 
     drone = System()

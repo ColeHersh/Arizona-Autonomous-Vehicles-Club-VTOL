@@ -4,7 +4,7 @@ import asyncio
 
 from mavsdk import System
 from mavsdk.mission import (MissionItem, MissionPlan)
-
+from mavsdk.telemetry import FlightMode
 
 async def run():
     drone = System()
@@ -36,21 +36,21 @@ async def run():
                                         25,
                                         10,
                                         True,
-                                        float('nan'),
-                                        float('nan'),
+                                        float('0'),
+                                        float('0'),
                                         MissionItem.CameraAction.NONE,
-                                        float('nan'),
-                                        float('nan'),
-                                        float('nan'),
-                                        float('nan'),
-                                        float('nan')))
+                                        float('1'),
+                                        float('0'),
+                                        float('4'),
+                                        float('0'),
+                                        float('0')))
             
         
     
     mission_plan = MissionPlan(mission_items)
-
+    fl = FlightMode(4)
     await drone.mission.set_return_to_launch_after_mission(True)
-
+    #await drone.telemetry.FlightMode('MISSION')
     print("-- Uploading mission")
     await drone.mission.upload_mission(mission_plan)
 
@@ -74,8 +74,10 @@ async def print_mission_progress(drone):
         print(f"Mission progress: "
               f"{mission_progress.current}/"
               f"{mission_progress.total}")
-
-
+        if mission_progress.current == mission_progress.total:
+            #await drone.telemetry.FlightMode('')
+            print("-- Landing")
+            await drone.action.land()
 async def observe_is_in_air(drone, running_tasks):
     """ Monitors whether the drone is flying or not and
     returns after landing """
