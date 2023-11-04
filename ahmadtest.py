@@ -1,3 +1,1 @@
-ahmad
-t
-ee
+print("xx")
