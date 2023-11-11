@@ -1,5 +1,6 @@
 from pymavlink import mavutil
-
+def arm(the_connection):
+    the_connection.mav.command_long_send(the_connection.target_system, the_connection.target_component, mavutil.mavlink.MAV_CMD_COMPONENT_ARM_DISARM, 0, 1, 0, 0, 0, 0, 0, 0)
 def takeoff(the_connection):
     msg = the_connection.recv_match(
         type='GLOBAL_POSITION_INT', blocking=True)
@@ -28,3 +29,6 @@ def takeoff(the_connection):
         # altitude is off by less than 2 meters
         if(temp <= -48):
             run = False
+            
+def rtl(the_connection):
+    the_connection.mav.command_long_send(the_connection.target_system, the_connection.target_component, mavutil.mavlink.MAV_CMD_NAV_RETURN_TO_LAUNCH, 0, 0, 0, 0, 0, 0, 0, 0)
