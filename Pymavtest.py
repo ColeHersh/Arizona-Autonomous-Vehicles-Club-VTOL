@@ -22,7 +22,7 @@ while run:
     temp = str(msg).split()
     temp = temp[12]
     temp = float(temp[:len(temp) - 1])
-    #print(temp)
+    print(temp)
     if(temp <= -49):
         run = False
 the_connection.mav.command_long_send(the_connection.target_system, the_connection.target_component, mavutil.mavlink.MAV_CMD_NAV_RETURN_TO_LAUNCH, 0, 0, 0, 0, 0, 0, 0, 0)
