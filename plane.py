@@ -3,6 +3,10 @@ class Plane:
     def __init__(self, connection):
         self.the_connection = connection
     
+    
+    def get_heartbeat(self):
+        self.the_connection.wait_heartbeat()
+        print("Heartbeat from system (system %u component %u)" % (self.the_connection.target_system, self.the_connection.target_component))
     def arm(self):
         self.the_connection.mav.command_long_send(self.the_connection.target_system, self.the_connection.target_component, mavutil.mavlink.MAV_CMD_COMPONENT_ARM_DISARM, 0, 1, 0, 0, 0, 0, 0, 0)
         
@@ -11,7 +15,7 @@ class Plane:
         msg = self.the_connection.recv_match(
             type='GLOBAL_POSITION_INT', blocking=True)
         msg = str(msg).split()
-        print(msg)
+        #print(msg)
         lat = msg[6]
         lat = float(lat[:len(lat) - 1])
         lon = msg[9]
