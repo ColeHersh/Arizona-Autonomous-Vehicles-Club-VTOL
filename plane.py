@@ -9,7 +9,8 @@ class Plane:
         print("Heartbeat from system (system %u component %u)" % (self._the_connection.target_system, self._the_connection.target_component))
     def arm(self):
         self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component, mavutil.mavlink.MAV_CMD_COMPONENT_ARM_DISARM, 0, 1, 0, 0, 0, 0, 0, 0)
-        
+    def goto(self,x,y,z, FLIGHT_VELOCITY_X = 10, FLIGHT_VELOCITY_Y = 10, FLIGHT_VELOCITY_Z = 10):
+        self.the_connection.mav.send(mavutil.mavlink.MAVLink_set_position_target_local_ned_message(10, self.the_connection.target_system, self.the_connection.target_component, mavutil.mavlink.MAV_FRAME_LOCAL_NED, int(0b110111111000), x, y, -1*(z), FLIGHT_VELOCITY_X, FLIGHT_VELOCITY_Y, FLIGHT_VELOCITY_Z, 0, 0, 0, 0, 0))
         
     def takeoff(self):
         msg = self._the_connection.recv_match(
