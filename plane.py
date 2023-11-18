@@ -24,7 +24,7 @@ class Plane:
         #print(msg)
         # This runs until the desired Altitude is reached
         run = True
-        while run:
+        while run: 
             self.get_global_info()
             alt = self.get_alt()
             #print(alt)
@@ -35,6 +35,15 @@ class Plane:
                 
     def rtl(self):
         self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component, mavutil.mavlink.MAV_CMD_NAV_RETURN_TO_LAUNCH, 0, 0, 0, 0, 0, 0, 0, 0)
+        
+    '''
+    Lands plane at the current GPS Cords
+    '''
+    def land(self):
+        self.get_global_info()
+        lat = self.get_lat()
+        lon = self.get_lon()
+        self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component, mavutil.mavlink.MAV_CMD_NAV_LAND, 0, 0, 0, 0, 0, lat, lon, self._altitude)
         
     def get_global_info(self):
         msg = self._the_connection.recv_match(
