@@ -39,7 +39,6 @@ class Plane:
                                                        waypoint.param7)
             if waypoint != mission_items[n-1]:
                 self.acknowledge('MISSION_REQUEST')
-        
         self.acknowledge('MISSION_ACK')
     
 
@@ -104,6 +103,12 @@ class Plane:
                                                    self._the_connection.target_component,
                                                    mavutil.mavlink.MAV_CMD_MISSION_START,
                                                    0, 0, 0, 0, 0, 0, 0, 0)
+        # gets curre waypoint - tries to keep it at first one
+        while (1):
+            way = self._the_connection.waypoint_current()
+            print(way)
+            if way == 1:
+                self._the_connection.waypoint_set_current_send(1)
 
     '''
     Lands plane at the current GPS Cords
