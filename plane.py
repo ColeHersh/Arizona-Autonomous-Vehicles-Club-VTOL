@@ -1,4 +1,5 @@
 from pymavlink import mavutil
+
 class Plane:
     def __init__(self, connection):
         self._the_connection = connection
@@ -89,5 +90,5 @@ class Plane:
         return self._global_info[4]
     
     def get_velo_z(self):
-        return self._global_info[5]
+        return self._global_info[5] 
         
