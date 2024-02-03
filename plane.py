@@ -65,6 +65,7 @@ class Plane:
         #                                           0.0, float("nan"), 
         #                                           int(lat*1e7), int(lon*1e7), alt)
         
+        # could use MAV_CMD_DO_REPOSITION for this
         self._the_connection.mav.send(mavutil.mavlink.MAVLink_set_position_target_global_int_message(
             10, self._the_connection.target_system, self._the_connection.target_component, 
             mavutil.mavlink.MAV_FRAME_GLOBAL_INT, 
@@ -77,19 +78,24 @@ class Plane:
         msg = self._the_connection.recv_match(type=command, blocking=True)
         print(msg)
 
+    def get_curr_item_squence(self):
+        return self._the_connection.recv_match(type='MISSION_CURRENT')
+        
+    def interrupt(self, mission_item):
+        # Use MISSION_CURRENT  to check curr mission item
+        # an Overdie? MAV_CMD_OVERRIDE_GOTO
+        MISSION_SET_CURRENT = 0
+    
     def takeoff(self):
         lat = self.get_lat()
         lon = self.get_lon()
         self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component, mavutil.mavlink.MAV_CMD_NAV_TAKEOFF, 0, 0, 0, 0, 0, lat, lon, 50)
         msg = self._the_connection.recv_match(type='COMMAND_ACK', blocking=True)
-        #print(msg)
         # This runs until the desired Altitude is reached
         run = True
         while run: 
             self.get_global_info()
             alt = self.get_alt()
-            #print(alt)
-            #print(temp)
             # altitude is off by less than 2 meters
             if(alt >= 48):
                 run = False
@@ -103,12 +109,20 @@ class Plane:
                                                    self._the_connection.target_component,
                                                    mavutil.mavlink.MAV_CMD_MISSION_START,
                                                    0, 0, 0, 0, 0, 0, 0, 0)
+        
+        #self._the_connection.mav.command_long_send(self._the_connection.target_system,
+                                                   #self._the_connection.target_component, mavutil.mavlink.MAV_CMD_DO_SET_MISSION_CURRENT,  3, 0, 0, 0, 0, 0, 0, 0)
+        #self._the_connection.waypoint_set_current_send(2)
         # gets curre waypoint - tries to keep it at first one
         while (1):
             way = self._the_connection.waypoint_current()
             print(way)
-            if way == 1:
-                self._the_connection.waypoint_set_current_send(1)
+            if(way == 2):
+                 self._the_connection.waypoint_set_current_send(0)
+           # if way != 2:
+              #  self._the_connection.mav.command_long_send(self._the_connection.target_system,
+                #                                   self._the_connection.target_component, mavutil.mavlink.MAV_CMD_DO_SET_MISSION_CURRENT,  0, 0, 0, 0, 0, 0, 0, 0)
+                #self._the_connection.waypoint_set_current_send(1)
 
     '''
     Lands plane at the current GPS Cords
