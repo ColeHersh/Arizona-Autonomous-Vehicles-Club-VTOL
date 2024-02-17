@@ -24,14 +24,6 @@ async def run():
             print(f"-- Connected to drone!")
             break
 
-    # Fetch the home location coordinates, in order to set a boundary around
-    # the home location.
-   # print("Fetching home location coordinates...")
-    #async for terrain_info in drone.telemetry.home():
-       # latitude = terrain_info.latitude_deg
-       # longitude = terrain_info.longitude_deg
-       # break
-
     await asyncio.sleep(1)
 
     # Define your geofence boundary
