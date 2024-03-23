@@ -79,7 +79,7 @@ class Plane:
         print(msg)
 
     def get_curr_item_squence(self):
-        return self._the_connection.recv_match(type='MISSION_CURRENT')
+        return self._the_connection.waypoint_current()
         
     def interrupt(self, mission_item):
         # Use MISSION_CURRENT  to check curr mission item
@@ -102,6 +102,9 @@ class Plane:
                 
     def rtl(self):
         self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component, mavutil.mavlink.MAV_CMD_NAV_RETURN_TO_LAUNCH, 0, 0, 0, 0, 0, 0, 0, 0)
+    
+    def set_curr_waypoint(self, seq_num):
+        self._the_connection.waypoint_set_current_send(seq_num)
         
     def start_mission(self):
         print("Starting mission")
@@ -114,11 +117,11 @@ class Plane:
                                                    #self._the_connection.target_component, mavutil.mavlink.MAV_CMD_DO_SET_MISSION_CURRENT,  3, 0, 0, 0, 0, 0, 0, 0)
         #self._the_connection.waypoint_set_current_send(2)
         # gets curre waypoint - tries to keep it at first one
-        while (1):
-            way = self._the_connection.waypoint_current()
-            print(way)
-            if(way == 2):
-                 self._the_connection.waypoint_set_current_send(0)
+       # while (1):
+           # way = self._the_connection.waypoint_current()
+           # print(way)
+            #if(way == 2):
+                 #self._the_connection.waypoint_set_current_send(0)
            # if way != 2:
               #  self._the_connection.mav.command_long_send(self._the_connection.target_system,
                 #                                   self._the_connection.target_component, mavutil.mavlink.MAV_CMD_DO_SET_MISSION_CURRENT,  0, 0, 0, 0, 0, 0, 0, 0)
