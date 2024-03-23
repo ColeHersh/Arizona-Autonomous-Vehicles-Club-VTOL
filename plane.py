@@ -1,5 +1,8 @@
 from pymavlink import mavutil
 from time import sleep
+from geofence_competition import set_geofence_comp
+import asyncio
+
 class Plane:
     def __init__(self, connection):
         self._the_connection = connection
@@ -182,3 +185,5 @@ class Plane:
     def get_velo_z(self):
         return self._global_info[5] 
         
+    def set_geofence():
+        asyncio.run(set_geofence_comp)
