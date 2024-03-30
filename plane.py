@@ -88,6 +88,17 @@ class Plane:
         # Use MISSION_CURRENT  to check curr mission item
         # an Overdie? MAV_CMD_OVERRIDE_GOTO
         MISSION_SET_CURRENT = 0
+        
+    def abort(self):
+        # MAV_CMD_DO_PAUSE_CONTINUE
+        # MAV_CMD_DO_REPOSITION
+        self.get_global_info()
+        #self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component,  mavutil.mavlink.MAV_CMD_DO_PAUSE_CONTINUE, 0, 
+         #                                          0, 0, 0, 0, 0, 0, 0)
+        self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component,  mavutil.mavlink.MAV_CMD_DO_REPOSITION, 0, 
+                                                   -1, 0, 10, 0, int(self.get_lat() * 10 ** 7) + 0.001, int(self.get_lon() * 10 ** 7), self.get_alt())
+        msg = self._the_connection.recv_match(type='COMMAND_ACK', blocking=True)
+        print(msg)
     
     def takeoff(self):
         lat = self.get_lat()
