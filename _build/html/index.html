@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Welcome to AZAvionics’s documentation! &#8212; AZAvionics 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-plane">
+<span id="welcome-to-azavionics-s-documentation"></span><h1>Welcome to AZAvionics’s documentation!<a class="headerlink" href="#module-plane" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="plane.Plane">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">plane.</span></span><span class="sig-name descname"><span class="pre">Plane</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plane.Plane" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class holds the commands and variables
+for the aircraft</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="plane.Plane.abort">
+<span class="sig-name descname"><span class="pre">abort</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plane.Plane.abort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pauses the current mission for interrupt.
+Allows for CV to operate and direct aircraft</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plane.Plane.acknowledge">
+<span class="sig-name descname"><span class="pre">acknowledge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'COMMAND_ACK'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plane.Plane.acknowledge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints the command acknownledgement and result</p>
+<p>:param command - the command to be acknowledged</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plane.Plane.arm">
+<span class="sig-name descname"><span class="pre">arm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plane.Plane.arm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arms the aricraft so it is ready to recive commands</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plane.Plane.get_alt">
+<span class="sig-name descname"><span class="pre">get_alt</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plane.Plane.get_alt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the current altitude</p>
+<p>:return the current altitde as an int</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plane.Plane.get_curr_item_squence">
+<span class="sig-name descname"><span class="pre">get_curr_item_squence</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plane.Plane.get_curr_item_squence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the current waypoint’s sequence number</p>
+<p>:return an integer representing the current waypont’s postion in the sequence</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plane.Plane.get_global_info">
+<span class="sig-name descname"><span class="pre">get_global_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plane.Plane.get_global_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pulls the information of the plane of the getters</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plane.Plane.get_heartbeat">
+<span class="sig-name descname"><span class="pre">get_heartbeat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plane.Plane.get_heartbeat" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method prints the connection and its info.
+Used to confirm connection to the aircraft</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plane.Plane.get_lat">
+<span class="sig-name descname"><span class="pre">get_lat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plane.Plane.get_lat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current lattitude</p>
+<p>:return the current lattiude as a float</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plane.Plane.get_lon">
+<span class="sig-name descname"><span class="pre">get_lon</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plane.Plane.get_lon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current longitude</p>
+<p>:return the current longitude as a float</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plane.Plane.get_velo_x">
+<span class="sig-name descname"><span class="pre">get_velo_x</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plane.Plane.get_velo_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current velocity onn the x plane</p>
+<p>:return the current x velocity</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plane.Plane.get_velo_y">
+<span class="sig-name descname"><span class="pre">get_velo_y</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plane.Plane.get_velo_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current velocity on the y plane</p>
+<p>:return the current y velocity</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plane.Plane.get_velo_z">
+<span class="sig-name descname"><span class="pre">get_velo_z</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plane.Plane.get_velo_z" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current velocity onn the z plane</p>
+<p>:return the current z velocity</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plane.Plane.land">
+<span class="sig-name descname"><span class="pre">land</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plane.Plane.land" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lands at the current location</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plane.Plane.move">
+<span class="sig-name descname"><span class="pre">move</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plane.Plane.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves the aircraft to the desired position</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plane.Plane.rtl">
+<span class="sig-name descname"><span class="pre">rtl</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plane.Plane.rtl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lands at the takeoff location</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plane.Plane.set_curr_waypoint">
+<span class="sig-name descname"><span class="pre">set_curr_waypoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq_num</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plane.Plane.set_curr_waypoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the current waypoint to move to in the mission</p>
+<p>:param the desired waypoint’s sequence number</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plane.Plane.set_geofence">
+<span class="sig-name descname"><span class="pre">set_geofence</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plane.Plane.set_geofence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets up the geofence(s)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plane.Plane.start_mission">
+<span class="sig-name descname"><span class="pre">start_mission</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plane.Plane.start_mission" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts the mission.  Requirement- a mission must be uploaded</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plane.Plane.takeoff">
+<span class="sig-name descname"><span class="pre">takeoff</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plane.Plane.takeoff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes off at the current location</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plane.Plane.upload_mission">
+<span class="sig-name descname"><span class="pre">upload_mission</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mission_items</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plane.Plane.upload_mission" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes in mission and uploads it to the plane</p>
+<p>:param mission_items - an array of mission_item objects</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-mission_item"></span><dl class="py class">
+<dt class="sig sig-object py" id="mission_item.mission_item">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mission_item.</span></span><span class="sig-name descname"><span class="pre">mission_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mission_item.mission_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Holds relevant information for a new mission item
+Uploads to mission as an array of these
+Possible Commands are:
+MAV_CMD_NAV_WAYPOINT - Tested and confirmed works
+MAV_CMD_NAV_LOITER_UNLIM
+MAV_CMD_NAV_LOITER_TURNS
+MAV_CMD_NAV_LOITER_TIME
+MAV_CMD_NAV_RETURN_TO_LAUNCH
+MAV_CMD_NAV_LAND - Tested and confirmed works
+MAV_CMD_NAV_TAKEOFF
+MAV_CMD_NAV_LAND_LOCAL
+MAV_CMD_NAV_TAKEOFF_LOCAL
+MAV_CMD_NAV_FOLLOW
+MAV_CMD_NAV_CONTINUE_AND_CHANGE_ALT
+MAV_CMD_NAV_LOITER_TO_ALT
+MAV_CMD_NAV_ROI
+MAV_CMD_NAV_PATHPLANNING
+MAV_CMD_NAV_SPLINE_WAYPOINT
+MAV_CMD_NAV_VTOL_TAKEOFF
+MAV_CMD_NAV_VTOL_LAND
+MAV_CMD_NAV_GUIDED_ENABLE
+MAV_CMD_NAV_DELAY
+MAV_CMD_NAV_PAYLOAD_PLACE
+MAV_CMD_NAV_LAST
+MAV_CMD_NAV_SET_YAW_SPEED
+MAV_CMD_NAV_FENCE_RETURN_POINT
+MAV_CMD_NAV_FENCE_POLYGON_VERTEX_INCLUSION
+MAV_CMD_NAV_FENCE_POLYGON_VERTEX_EXCLUSION
+MAV_CMD_NAV_FENCE_CIRCLE_INCLUSION
+MAV_CMD_NAV_FENCE_CIRCLE_EXCLUSION
+MAV_CMD_NAV_RALLY_POINT
+Check <a class="reference external" href="https://mavlink.io/en/messages/common.html">https://mavlink.io/en/messages/common.html</a> for parameters</p>
+</dd></dl>
+
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">AZAvionics</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2024, AZA.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
