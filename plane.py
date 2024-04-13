@@ -11,6 +11,7 @@ class Plane:
         self.get_global_info()
         # Since global alt is used, need to get the diff
         self._altitude = self.get_alt()
+        self.landed = False
     
     def get_heartbeat(self):
         self._the_connection.wait_heartbeat()
@@ -84,21 +85,36 @@ class Plane:
     def get_curr_item_squence(self):
         return self._the_connection.waypoint_current()
         
-    def interrupt(self, mission_item):
+    def get_state(self):
         # Use MISSION_CURRENT  to check curr mission item
         # an Overdie? MAV_CMD_OVERRIDE_GOTO
-        MISSION_SET_CURRENT = 0
+        msg = str(self._the_connection.recv_match(type='MISSION_STATE', blocking=True))
+        print(msg)
+        msg.split()[3]
+        return msg
         
     def abort(self):
         # MAV_CMD_DO_PAUSE_CONTINUE
         # MAV_CMD_DO_REPOSITION
         self.get_global_info()
-        #self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component,  mavutil.mavlink.MAV_CMD_DO_PAUSE_CONTINUE, 0, 
-         #                                          0, 0, 0, 0, 0, 0, 0)
+       # self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component,  mavutil.mavlink.MAV_CMD_DO_PAUSE_CONTINUE, 0, 
+        #                                           0, 0, 0, 0, 0, 0, 0)
         self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component,  mavutil.mavlink.MAV_CMD_DO_REPOSITION, 0, 
-                                                   -1, 0, 10, 0, int(self.get_lat() * 10 ** 7) + 0.001, int(self.get_lon() * 10 ** 7), self.get_alt())
+                                                  -1, 0x00000001, 0, float("NaN"),  float("NaN"), float("NaN"), 50)
         msg = self._the_connection.recv_match(type='COMMAND_ACK', blocking=True)
         print(msg)
+    
+    
+    def unpause(self):
+        self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component,  mavutil.mavlink.MAV_CMD_DO_SET_MISSION_CURRENT, self.get_curr_item_squence(),
+                                                     0, 0, 0, 0, 0, 0, 0)
+        msg = self._the_connection.recv_match(type='COMMAND_ACK', blocking=True)
+        print(msg)
+  
+    def move(self):
+      self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component,  mavutil.mavlink.MAV_CMD_DO_REPOSITION, 0, 
+                                                  -1, 0x00000001, 0, float("NaN"),  self.get_lat() + 0.0004, float("NaN"), 10)
+    
     
     def takeoff(self):
         lat = self.get_lat()
@@ -116,7 +132,7 @@ class Plane:
                 
     def rtl(self):
         self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component, mavutil.mavlink.MAV_CMD_NAV_RETURN_TO_LAUNCH, 0, 0, 0, 0, 0, 0, 0, 0)
-    
+        self.landed = True
     def set_curr_waypoint(self, seq_num):
         self._the_connection.waypoint_set_current_send(seq_num)
         
@@ -149,7 +165,7 @@ class Plane:
         lat = self.get_lat()
         lon = self.get_lon()
         self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component, mavutil.mavlink.MAV_CMD_NAV_LAND, 0, 0, 0, 0, 0, lat, lon, self._altitude)
-        
+        self.landed = True
     def get_global_info(self):
         msg = self._the_connection.recv_match(
             type='GLOBAL_POSITION_INT', blocking=True)
