@@ -15,4 +15,4 @@ mission_items.append(mission_item(1, 0, plane.get_lat() + 0.0003, plane.get_lon(
 mission_items.append(mission_item(2, 0, plane.get_lat(), plane.get_lon(), 50, 1, mavutil.mavlink.MAV_CMD_NAV_LAND))
 
 
-plane.move()
+plane.move() 
