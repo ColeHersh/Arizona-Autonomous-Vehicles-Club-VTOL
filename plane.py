@@ -104,10 +104,16 @@ class Plane:
     
     
     def unpause(self):
-        self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component,  mavutil.mavlink.MAV_CMD_DO_SET_MISSION_CURRENT, self.get_curr_item_squence(),
-                                                     0, 0, 0, 0, 0, 0, 0)
+        #self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component,  mavutil.mavlink.MAV_CMD_DO_SET_MISSION_CURRENT, self.get_curr_item_squence(),
+                                                     #0, 0, 0, 0, 0, 0, 0)
+        self._the_connection.mav.command_long_send(self._the_connection.target_system,
+                                                   self._the_connection.target_component,
+                                                   mavutil.mavlink.MAV_CMD_MISSION_START,
+                                                   0, 0, 0, 0, 0, 0, 0, 0)
+
         msg = self._the_connection.recv_match(type='COMMAND_ACK', blocking=True)
         print(msg)
+        print("unpausing")
   
     def move(self):
         """

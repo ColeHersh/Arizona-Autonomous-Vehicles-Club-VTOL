@@ -23,16 +23,18 @@ plane.start_mission()
 inter = True
 while(1):
     #print(plane.get_curr_item_squence())
-    print(plane.get_curr_item_squence())
+   # print(plane.get_curr_item_squence())
     if(plane.get_curr_item_squence() == 1 and inter):
         print('Abort')
         plane.abort()
+        sleep(3)
+        plane.unpause()
         #plane.land()
-        
+        inter = False
        # plane.upload_mission([mission_item(1, 0, plane.get_lat(), plane.get_lon() + 0.0001, 50, mavutil.mavlink.MAV_CMD_NAV_LAND)])
        # plane.start_mission()
         #plane.set_curr_waypoint(0)
-        inter = False
+      #  inter = False
     #if(plane.landed):
       #
       # break
