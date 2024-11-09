@@ -8,7 +8,7 @@ plane = Plane(the_connection)
 
 plane.get_heartbeat()
 plane.arm()
-plane.takeoff()
+plane.takeoff(50)
 plane.get_global_info()
 mission_items = []
 mission_items.append(mission_item(0, 0, plane.get_lat() + 0.0001, plane.get_lon() + 0.0001, 50, 1))
