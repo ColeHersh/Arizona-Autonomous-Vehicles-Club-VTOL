@@ -101,6 +101,18 @@ class Plane:
         self.move()
         msg = self._the_connection.recv_match(type='COMMAND_ACK', blocking=True)
         print(msg)
+
+    def resume(self):
+        self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component,  mavutil.mavlink.MAV_CMD_DO_PAUSE_CONTINUE, 0,
+                                                     0, 0, 0, 0, 0, 0, 0)
+        msg = self._the_connection.recv_match(type='COMMAND_ACK', blocking=True)
+        print(msg)
+
+    def pause(self):
+        self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component,  mavutil.mavlink.MAV_CMD_DO_SET_MISSION_CURRENT, -1,
+                                                     0, 0, 0, 0, 0, 0, 0)
+        msg = self._the_connection.recv_match(type='COMMAND_ACK', blocking=True)
+        print(msg)
     
     
     def unpause(self):
@@ -156,7 +168,7 @@ class Plane:
         """
         self._the_connection.waypoint_set_current_send(seq_num)
         
-    def start_mission(self):
+    def start_mission(self, start_val = 0):
         """
         Starts the mission.  Requirement- a mission must be uploaded
         """
@@ -164,7 +176,7 @@ class Plane:
         self._the_connection.mav.command_long_send(self._the_connection.target_system,
                                                    self._the_connection.target_component,
                                                    mavutil.mavlink.MAV_CMD_MISSION_START,
-                                                   0, 0, 0, 0, 0, 0, 0, 0)
+                                                   start_val, 0, 0, 0, 0, 0, 0, 0)
 
 
     def land(self):
