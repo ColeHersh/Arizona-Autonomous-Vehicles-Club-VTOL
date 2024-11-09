@@ -150,7 +150,7 @@ class Plane:
             self.get_global_info()
             alt = self.get_alt()
             # altitude is off by less than 2 meters
-            if(alt >= 48):
+            if(alt >= height):
                 run = False
                 
     def rtl(self):
