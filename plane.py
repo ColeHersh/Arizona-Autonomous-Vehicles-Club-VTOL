@@ -36,6 +36,13 @@ class Plane:
         """
         self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component, mavutil.mavlink.MAV_CMD_COMPONENT_ARM_DISARM, 0, 1, 0, 0, 0, 0, 0, 0)
     
+    def disarm(self):
+        """
+        disarms the aircraft so it is safe
+        """
+        self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component, mavutil.mavlink.MAV_CMD_COMPONENT_ARM_DISARM, 0, 0, 0, 0, 0, 0, 0, 0)
+    
+    
     def upload_mission(self, mission_items):
         """
         Takes in mission and uploads it to the plane
