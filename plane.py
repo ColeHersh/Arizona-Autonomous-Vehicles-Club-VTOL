@@ -136,13 +136,13 @@ class Plane:
                                                   -1, 0x00000001, 0, float("NaN"),  self.get_lat() + 0.0004, float("NaN"), 10)
     
     
-    def takeoff(self):
+    def takeoff(self, height = 0):
         """
         Takes off at the current location
-        """
+        """,
         lat = self.get_lat()
         lon = self.get_lon()
-        self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component, mavutil.mavlink.MAV_CMD_NAV_TAKEOFF, 0, 0, 0, 0, 0, lat, lon, 50)
+        self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component, mavutil.mavlink.MAV_CMD_NAV_TAKEOFF, 0, 0, 0, 0, 0, lat, lon, height)
         msg = self._the_connection.recv_match(type='COMMAND_ACK', blocking=True)
         # This runs until the desired Altitude is reached
         run = True
@@ -150,7 +150,7 @@ class Plane:
             self.get_global_info()
             alt = self.get_alt()
             # altitude is off by less than 2 meters
-            if(alt >= 48):
+            if(alt >= height):
                 run = False
                 
     def rtl(self):
