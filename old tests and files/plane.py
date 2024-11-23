@@ -201,32 +201,31 @@ class Plane:
         Pulls the information of the plane of the getters
         """
         msg = self._the_connection.recv_match(
-            type='GPS_RAW_INT', blocking=True)
+            type='GLOBAL_POSITION_INT', blocking=True)
         msg = str(msg).split()
         
-        lat = msg[9]
+        lat = msg[6]
         lat = float(lat[:len(lat) - 1])
         
-        lon = msg[12]
+        lon = msg[9]
         lon = float(lon[:len(lon) - 1])
         
         lat /= 10 ** 7
         lon /= 10 ** 7
         
-        alt = msg[15]
-        #alt = int(alt[:len(alt) - 1])/1000
+        alt = msg[12]
         alt = (float(alt[:len(alt) - 1]) - abs(self._altitude))/1000
         
-        #velo_x = msg[15]
-        #velo_x = float(velo_x[:len(velo_x) - 1])
+        velo_x = msg[15]
+        velo_x = float(velo_x[:len(velo_x) - 1])
         
-        #velo_y = msg[18]
-        #velo_y = float(velo_y[:len(velo_y) - 1])
+        velo_y = msg[18]
+        velo_y = float(velo_y[:len(velo_y) - 1])
         
-        #velo_z = msg[21]
-        #velo_z = float(velo_z[:len(velo_z) - 1])
+        velo_z = msg[21]
+        velo_z = float(velo_z[:len(velo_z) - 1])
         # do vx, vy, vy and getters for all
-        self._global_info = [lat, lon, alt]
+        self._global_info = [lat, lon, alt, velo_x, velo_y, velo_z]
     
     def get_lat(self):
         """
@@ -252,8 +251,7 @@ class Plane:
         """
         
         return self._global_info[2]
-    '''
-    Deprecated
+
     def get_velo_x(self):
         """
         Get the current velocity onn the x plane
@@ -283,4 +281,3 @@ class Plane:
         Sets up the geofence(s)
         """
         asyncio.run(set_geofence_comp)
-        '''
