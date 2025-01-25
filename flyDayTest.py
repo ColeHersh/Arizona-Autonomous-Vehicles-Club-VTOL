@@ -3,8 +3,12 @@ from plane import *
 from mission_item import *
 from time import sleep
 
-the_connection = mavutil.mavlink_connection('com3', baud=57600)
+#the_connection = mavutil.mavlink_connection('com3', baud=57600)
+the_connection = mavutil.mavlink_connection('udpin:localhost:14550')
 plane = Plane(the_connection)
+
+while 1:
+    print(str(plane.rcv()))
 
 plane.get_heartbeat()
 plane.arm()
