@@ -8,7 +8,8 @@ the_connection = mavutil.mavlink_connection('udpin:localhost:14550')
 plane = Plane(the_connection)
 
 while 1:
-    print(str(plane.rcv()))
+    if (str(plane.rcv())) != "None":
+        print(str(plane.rcv()))
 
 plane.get_heartbeat()
 plane.arm()
