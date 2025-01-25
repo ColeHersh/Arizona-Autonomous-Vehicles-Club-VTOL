@@ -252,6 +252,10 @@ class Plane:
         """
         
         return self._global_info[2]
+    
+    def rcv(self):
+        return self._the_connection.recv_match()
+    
     '''
     Deprecated
     def get_velo_x(self):
