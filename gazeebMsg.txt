@@ -1,0 +1,168 @@
+Message:ALTITUDE
+
+Info:{time_usec : 1440168000, altitude_monotonic : 488.4126892089844, altitude_amsl : 2.4510254859924316, altitude_local : 1.1157848834991455, altitude_relative : 0.9343929290771484, altitude_terrain : nan, bottom_clearance : nan}
+
+
+
+
+Message:ATTITUDE
+
+Info:{time_boot_ms : 1440164, roll : -0.055810797959566116, pitch : 0.03851079195737839, yaw : -2.1320738792419434, rollspeed : 0.02564035914838314, pitchspeed : -0.0321480818092823, yawspeed : 0.06299019604921341}
+
+
+
+
+Message:ATTITUDE_QUATERNION
+
+Info:{time_boot_ms : 1440164, q1 : 0.4837891459465027, q2 : 0.0033557615242898464, q3 : 0.03372529149055481, q4 : -0.8745280504226685, rollspeed : 0.02564035914838314, pitchspeed : -0.0321480818092823, yawspeed : 0.06299019604921341, repr_offset_q : [0.0, 0.0, 0.0, 0.0]}
+
+
+
+
+Message:BATTERY_STATUS
+
+Info:{id : 0, battery_function : 1, type : 1, temperature : 32767, voltages : [15300, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535], current_battery : -100, current_consumed : 0, energy_consumed : -1, battery_remaining : 62, time_remaining : 0, charge_state : 1, voltages_ext : [65535, 65535, 65535, 65535], mode : 0, fault_bitmask : 0}
+
+
+
+
+Message:UNKNOWN_290
+
+Info:{data:['fd', '2e', '0', '0', '94', '1', '1', '22', '1', '0', 'a0', '28', 'd7', '55', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'e4', 'f', '0', '10', '2c', '10', '10', '10', '0', '8', '0', 'ff', '55', 'dc']}
+
+
+
+
+Message:UNKNOWN_291
+
+Info:{data:['fd', '38', '0', '0', '96', '1', '1', '23', '1', '0', 'a0', '28', 'd7', '55', '0', '0', '0', '0', '1e', 'c', '0', '0', '48', 'c', '0', '0', '8a', 'c', '0', '0', '60', 'c', '0', '0', 'cd', 'cc', '74', '41', 'cd', 'cc', '74', '41', 'cd', 'cc', '74', '41', 'cd', 'cc', '74', '41', '7b', '14', 'c', '41', '90', 'c2', 'd', '41', '67', '66', '10', '41', '52', 'b8', 'e', '41', '52', '6e']}
+
+
+
+
+Message:ESTIMATOR_STATUS
+
+Info:{time_usec : 1440160000, flags : 831, vel_ratio : 0.017429744824767113, pos_horiz_ratio : 0.017424728721380234, pos_vert_ratio : 0.006000121124088764, mag_ratio : 0.015634283423423767, hagl_ratio : 0.0, tas_ratio : 0.017603594809770584, pos_horiz_accuracy : 0.4762879014015198, pos_vert_accuracy : 0.3155542314052582}
+
+
+
+
+Message:EXTENDED_SYS_STATE
+
+Info:{vtol_state : 3, landed_state : 2}
+
+
+
+
+Message:GPS_RAW_INT
+
+Info:{time_usec : 1440004000, fix_type : 3, lat : 374135507, lon : -1219965271, alt : 2498, eph : 0, epv : 0, vel : 136, cog : 25885, satellites_visible : 10, alt_ellipsoid : 2498, h_acc : 1000, v_acc : 1000, vel_acc : 250, hdg_acc : 0, yaw : 0}
+
+
+
+
+Message:OPEN_DRONE_ID_LOCATION
+
+Info:{target_system : 0, target_component : 0, id_or_mac : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], status : 2, direction : 25900, speed_horizontal : 135, speed_vertical : -4, latitude : 374135507, longitude : -1219965271, altitude_barometric : 488.4126892089844, altitude_geodetic : 2.498000144958496, height_reference : 0, height : 0.9343928098678589, horizontal_accuracy : 11, vertical_accuracy : 5, barometer_accuracy : 1, speed_accuracy : 4, timestamp : 978.7000732421875, timestamp_accuracy : 10}
+
+
+
+
+Message:PING
+
+Info:{time_usec : 1440168000, seq : 143, target_system : 0, target_component : 0}
+
+
+
+
+Message:SCALED_PRESSURE
+
+Info:{time_boot_ms : 1440080, press_abs : 955.9470825195312, press_diff : 0.004627570975571871, temperature : 1183, temperature_press_diff : 1183}
+
+
+
+
+Message:SYS_STATUS
+
+Info:{onboard_control_sensors_present : 35684381, onboard_control_sensors_enabled : 35684381, onboard_control_sensors_health : 841056319, load : 120, voltage_battery : 15300, current_battery : -100, battery_remaining : 62, drop_rate_comm : 0, errors_comm : 0, errors_count1 : 0, errors_count2 : 0, errors_count3 : 0, errors_count4 : 0}
+
+
+
+
+Message:VIBRATION
+
+Info:{time_usec : 1440168000, vibration_x : 4.579258083836635e-10, vibration_y : 0.005107186734676361, vibration_z : 0.04831862077116966, clipping_0 : 0, clipping_1 : 0, clipping_2 : 0}
+
+
+
+
+Message:UNKNOWN_8
+
+Info:{data:['fd', '1a', '0', '0', 'a0', '1', '1', '8', '0', '0', '40', '38', 'd7', '55', '0', '0', '0', '0', '8c', '44', '0', '0', '0', '0', '0', '0', 'a0', '58', '8', '0', '10', '0', '0', '0', 'e8', '8', '46', 'a7']}
+
+
+
+
+Message:GLOBAL_POSITION_INT
+
+Info:{time_boot_ms : 1440168, lat : 374135503, lon : -1219965296, alt : 2450, relative_alt : 934, vx : -33, vy : -114, vz : 5, hdg : 23785}
+
+
+
+
+Message:ATTITUDE_TARGET
+
+Info:{time_boot_ms : 1440168, type_mask : 0, q : [-0.4838542342185974, -0.004634036682546139, -0.026957066729664803, 0.8747209906578064], body_roll_rate : 0.06542304903268814, body_pitch_rate : -0.02506479062139988, body_yaw_rate : -0.02822108007967472, thrust : 0.5261790156364441}
+
+
+
+
+Message:LOCAL_POSITION_NED
+
+Info:{time_boot_ms : 1440168, x : 0.8413972854614258, y : 1.7685415744781494, z : -1.1156253814697266, vx : -0.3311380445957184, vy : -1.1464345455169678, vz : 0.05206219479441643}
+
+
+
+
+Message:POSITION_TARGET_GLOBAL_INT
+
+Info:{time_boot_ms : 1440176, coordinate_frame : 5, type_mask : 0, lat_int : 374135437, lon_int : -1219965515, alt : 2.516632556915283, vx : -0.4387597143650055, vy : -1.1729005575180054, vz : -0.06578206270933151, afx : -0.17658731341362, afy : 0.507225513458252, afz : -0.25986945629119873, yaw : -2.1318023204803467, yaw_rate : -0.027534889057278633}
+
+
+
+
+Message:POSITION_TARGET_LOCAL_NED
+
+Info:{time_boot_ms : 1440168, coordinate_frame : 1, type_mask : 0, x : 0.8965457081794739, y : 1.9779096841812134, z : -1.18143630027771, vx : -0.4387597143650055, vy : -1.1729005575180054, vz : -0.06578206270933151, afx : -0.17658731341362, afy : 0.507225513458252, afz : -0.25986945629119873, yaw : -2.1318023204803467, yaw_rate : -0.027534889057278633}
+
+
+
+
+Message:COMMAND_ACK
+
+Info:{command : 400, result : 0, progress : 0, result_param2 : 0, target_system : 255, target_component : 0}
+
+
+
+
+Message:SERVO_OUTPUT_RAW
+
+Info:{time_usec : 1440180000, port : 0, servo1_raw : 1518, servo2_raw : 1523, servo3_raw : 1534, servo4_raw : 1528, servo5_raw : 1000, servo6_raw : 1500, servo7_raw : 1500, servo8_raw : 1500, servo9_raw : 900, servo10_raw : 900, servo11_raw : 900, servo12_raw : 900, servo13_raw : 900, servo14_raw : 900, servo15_raw : 900, servo16_raw : 900}
+
+
+
+
+Message:MISSION_CURRENT
+
+Info:{seq : 2}
+
+
+
+
+Message:VFR_HUD
+
+Info:{airspeed : 0.8682678937911987, groundspeed : 1.1512446403503418, heading : 238, throttle : 52, alt : 2.4491426944732666, climb : -0.04654201865196228}
+
+
+
+
