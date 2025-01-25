@@ -20,9 +20,11 @@ for i in range(100000):
         msg = msg.split()
         if msg[0] not in dict:
             dict[msg[0]] = " ".join(msg[1:])
-for key in dict.keys():
+
+for key in sorted(dict.keys()):
     str = 1
     f.write("Message:" + key +"\n\n")
     f.write("Info:" + dict[key] + "\n\n\n\n\n")
 f.close()
+
 print(dict.keys())
