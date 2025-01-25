@@ -2,6 +2,24 @@ from pymavlink import mavutil
 from plane import *
 from mission_item import *
 from time import sleep
+from threading import Thread
+
+def message_thread() 
+    sleep(1)
+    print(str(plane.rcv()))
+
+from threading import Thread
+from time import sleep
+
+def message_thread(): 
+    while True:  # Ensures the thread keeps running
+        sleep(1)
+        print(str(plane.rcv()))
+
+# Create and start the thread
+thread = Thread(target=message_thread)
+thread.daemon = True  # Ensures the thread stops when the main program exits
+thread.start()
 
 #the_connection = mavutil.mavlink_connection('com3', baud=57600)
 the_connection = mavutil.mavlink_connection('udpin:localhost:14550')
