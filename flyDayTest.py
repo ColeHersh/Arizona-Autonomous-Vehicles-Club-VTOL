@@ -4,32 +4,28 @@ from mission_item import *
 from time import sleep
 from threading import Thread
 
-def message_thread() 
-    sleep(1)
-    print(str(plane.rcv()))
-
-from threading import Thread
-from time import sleep
-
-def message_thread(): 
-    while True:  # Ensures the thread keeps running
+def message_thread():
+    while 1:
         sleep(1)
-        print(str(plane.rcv()))
+        msg = str(plane.rcv())
+        if "None" in msg:
+            print(msg)
+
+#the_connection = mavutil.mavlink_connection('com3', baud=57600)
+the_connection = mavutil.mavlink_connection('udpin:localhost:14550')
+plane = Plane(the_connection)
+plane.get_heartbeat()
+
+
 
 # Create and start the thread
 thread = Thread(target=message_thread)
 thread.daemon = True  # Ensures the thread stops when the main program exits
 thread.start()
 
-#the_connection = mavutil.mavlink_connection('com3', baud=57600)
-the_connection = mavutil.mavlink_connection('udpin:localhost:14550')
-plane = Plane(the_connection)
 
-while 1:
-    if (str(plane.rcv())) != "None":
-        print(str(plane.rcv()))
 
-plane.get_heartbeat()
+
 plane.arm()
 plane.takeoff(1)
 plane.get_global_info()
