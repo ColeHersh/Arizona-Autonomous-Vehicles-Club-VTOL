@@ -1,6 +1,6 @@
 from pymavlink import mavutil
 from plane import *
-the_connection = mavutil.mavlink_connection('com3', baud=57600)
+the_connection = mavutil.mavlink_connection('com3', baud=9600)
 #udpin:localhost:14550'
 plane = Plane(the_connection)
 
