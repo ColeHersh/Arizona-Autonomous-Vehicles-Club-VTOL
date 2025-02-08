@@ -186,10 +186,10 @@ class Plane:
                                                    start_val, 0, 0, 0, 0, 0, 0, 0)
 
     def transition_to_htol(self):
-        self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component, mavutil.mavlink.MAV_CMD_DO_VTOL_TRANSITION, 4, 0)
+        self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component, mavutil.mavlink.MAV_CMD_DO_VTOL_TRANSITION, 0, 4, 0, 0, 0, 0, 0, 0)
 
     def transition_to_vtol(self):
-        self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component, mavutil.mavlink.MAV_CMD_DO_VTOL_TRANSITION, 3, 0)
+        self._the_connection.mav.command_long_send(self._the_connection.target_system, self._the_connection.target_component, mavutil.mavlink.MAV_CMD_DO_VTOL_TRANSITION, 0, 3, 0, 0, 0, 0, 0, 0)
 
     def land(self):
         """
