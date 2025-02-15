@@ -98,6 +98,22 @@ class Plane:
         print(msg)
         msg.split()[3]
         return msg
+
+    def get_battery_status(self):
+        # Use MISSION_CURRENT  to check curr mission item
+        # an Overdie? MAV_CMD_OVERRIDE_GOTO
+        msg = str(self._the_connection.recv_match(type='BATTERY_STATUS', blocking=True))
+        print(msg)
+        msg.split()[3]
+        return msg
+
+    def get_vibration_status(self):
+        # Use MISSION_CURRENT  to check curr mission item
+        # an Overdie? MAV_CMD_OVERRIDE_GOTO
+        msg = str(self._the_connection.recv_match(type='VIBRATION', blocking=True))
+        print(msg)
+        msg.split()[3]
+        return msg
         
     def abort(self):
         """
