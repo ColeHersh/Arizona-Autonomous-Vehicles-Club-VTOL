@@ -5,14 +5,17 @@ from time import sleep
 from threading import Thread
 
 the_connection = mavutil.mavlink_connection('com3', baud=57600)
+print ("opened conn")
 plane = Plane(the_connection)
+print("made plane")
 plane.get_heartbeat()
-plane.arm()
+print("got heart")
 dict = {}
 
 f = open("actualMsg.txt", 'w')
 
 for i in range(100000):
+    print(i)
     msg = str(plane.rcv())
     if "None" not in msg:
         # makes dictionay entry
