@@ -4,8 +4,7 @@ from mission_item import *
 from time import sleep
 from threading import Thread
 
-the_connection = mavutil.mavlink_connection('com3', baud=57600)
-print ("opened conn")
+the_connection = mavutil.mavlink_connection('com4', baud=57600)
 plane = Plane(the_connection)
 print("made plane")
 plane.get_heartbeat()
@@ -14,8 +13,7 @@ dict = {}
 
 f = open("actualMsg.txt", 'w')
 
-for i in range(100000):
-    print(i)
+for i in range(10000000):
     msg = str(plane.rcv())
     if "None" not in msg:
         # makes dictionay entry
@@ -23,6 +21,7 @@ for i in range(100000):
         msg = msg.split()
         if msg[0] not in dict:
             dict[msg[0]] = " ".join(msg[1:])
+        print(i)
 
 for key in sorted(dict.keys()):
     str = 1

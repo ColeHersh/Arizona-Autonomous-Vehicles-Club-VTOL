@@ -1,0 +1,112 @@
+Message:ALTITUDE
+
+Info:{time_usec : 1638640067, altitude_monotonic : 665.299072265625, altitude_amsl : 665.299072265625, altitude_local : 2.2891314029693604, altitude_relative : 2.2891314029693604, altitude_terrain : 2.187687635421753, bottom_clearance : 0.10144376754760742}
+
+
+
+
+Message:ATTITUDE
+
+Info:{time_boot_ms : 1636852, roll : -0.04960287734866142, pitch : -0.043742213398218155, yaw : -2.1213879585266113, rollspeed : 0.00021232158178463578, pitchspeed : 0.00048387920833192766, yawspeed : 0.0009175129234790802}
+
+
+
+
+Message:ATTITUDE_TARGET
+
+Info:{time_boot_ms : 1637458, type_mask : 0, q : [0.48696935176849365, 0.0, 0.0, -0.8734190464019775], body_roll_rate : 0.3230038285255432, body_pitch_rate : 0.2845865488052368, body_yaw_rate : 0.0030468457844108343, thrust : 0.0}
+
+
+
+
+Message:BATTERY_STATUS
+
+Info:{id : 0, battery_function : 1, type : 1, temperature : 32767, voltages : [65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535], current_battery : -1, current_consumed : -1, energy_consumed : -1, battery_remaining : -1}
+
+
+
+
+Message:COMMAND_ACK
+
+Info:{command : 400, result : 1}
+
+
+
+
+Message:ESTIMATOR_STATUS
+
+Info:{time_usec : 1637348740, flags : 229, vel_ratio : nan, pos_horiz_ratio : nan, pos_vert_ratio : 0.004715096205472946, mag_ratio : 0.054859358817338943, hagl_ratio : 0.0, tas_ratio : 0.0, pos_horiz_accuracy : 0.012273780070245266, pos_vert_accuracy : 0.27182164788246155}
+
+
+
+
+Message:EXTENDED_SYS_STATE
+
+Info:{vtol_state : 3, landed_state : 1}
+
+
+
+
+Message:GPS_RAW_INT
+
+Info:{time_usec : 1638484633, fix_type : 4, lat : 322350496, lon : -1109536633, alt : 744797, eph : 148, epv : 191, vel : 2, cog : 9420, satellites_visible : 11}
+
+
+
+
+Message:HEARTBEAT
+
+Info:{type : 22, autopilot : 12, base_mode : 81, custom_mode : 65536, system_status : 3, mavlink_version : 3}
+
+
+
+
+Message:HOME_POSITION
+
+Info:{latitude : 322350610, longitude : -1109536604, altitude : 749168, x : 0.0, y : 0.0, z : 0.0, q : [1.0, 0.0, 0.0, 0.0], approach_x : 0.0, approach_y : 0.0, approach_z : 0.0}
+
+
+
+
+Message:PING
+
+Info:{time_usec : 1640818003, seq : 163, target_system : 0, target_component : 0}
+
+
+
+
+Message:SERVO_OUTPUT_RAW
+
+Info:{time_usec : 1638638141, port : 0, servo1_raw : 900, servo2_raw : 900, servo3_raw : 900, servo4_raw : 900, servo5_raw : 900, servo6_raw : 900, servo7_raw : 900, servo8_raw : 900}
+
+
+
+
+Message:SYS_STATUS
+
+Info:{onboard_control_sensors_present : 2452127788, onboard_control_sensors_enabled : 2451603468, onboard_control_sensors_health : 2184085519, load : 474, voltage_battery : 65535, current_battery : -1, battery_remaining : -1, drop_rate_comm : 0, errors_comm : 0, errors_count1 : 0, errors_count2 : 0, errors_count3 : 0, errors_count4 : 0}
+
+
+
+
+Message:UNKNOWN_8
+
+Info:{data:['fe', '24', 'b7', '1', '1', '8', 'f6', 'aa', 'ab', '61', '0', '0', '0', '0', '20', '1', '0', '0', '21', '0', '0', '0', 'ae', '63', '0', '0', '42', '6', '0', '0', '20', '4', '0', '0', '0', '0', '9', '0', '0', '0', '0', '0', '16', '8b']}
+
+
+
+
+Message:VFR_HUD
+
+Info:{airspeed : nan, groundspeed : 0.002916141180321574, heading : 238, throttle : 0, alt : 666.0098876953125, climb : 0.0036724547389894724}
+
+
+
+
+Message:VIBRATION
+
+Info:{time_usec : 1661849788, vibration_x : 6.79307721185296e-11, vibration_y : 0.0020334827713668346, vibration_z : 0.023342950269579887, clipping_0 : 0, clipping_1 : 0, clipping_2 : 0}
+
+
+
+
