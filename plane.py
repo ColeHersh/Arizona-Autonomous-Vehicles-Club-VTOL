@@ -277,6 +277,10 @@ class Plane:
     def rcv(self):
         return self._the_connection.recv_match()
     
+    
+    def avoid(self):
+        self._the_connection.mav.collision_send(1,mavutil.mavlink.MAV_COLLISION_ACTION_MOVE_HORIZONTALLY, 5, 3, 5)
+    
     '''
     Deprecated
     def get_velo_x(self):
