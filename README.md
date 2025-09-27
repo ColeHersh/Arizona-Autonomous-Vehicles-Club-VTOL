@@ -3,4 +3,5 @@
 Code for VTOL UAS using PyMavlink
 
 ## Useful Commands
-+ `make px4_sitl gazebo_standard_vtol__baylands` run gazebo (inside PX4 dir)
+
++ `make px4_sitl gazebo_standard_vtol_baylands` run gazebo (inside PX4 dir)
